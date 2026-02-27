@@ -1,4 +1,22 @@
 "use client";
+const useScrollReveal = () => {
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('revealed');
+            observer.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+};
 
 import { useState, useEffect, useRef } from "react";
 
@@ -76,6 +94,8 @@ export default function ProfessorPortfolio() {
   const [visible, setVisible] = useState(false);
   const sectionRefs = useRef({});
 
+  useScrollReveal();
+
   useEffect(() => {
     setTimeout(() => setVisible(true), 100);
     const observer = new IntersectionObserver(
@@ -109,6 +129,53 @@ export default function ProfessorPortfolio() {
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap');
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: none;
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* CARD HOVER POLISH */
+.pub-item {
+  transition: background 0.25s, padding-left 0.25s;
+}
+.pub-item:hover {
+  background: rgba(201,168,76,0.04);
+  padding-left: 0.75rem;
+}
+
+/* FILTER ANIMATION */
+.pub-list {
+  transition: opacity 0.2s;
+}
+
+/* GOLD UNDERLINE NAV ANIMATION */
+.nav-links button {
+  position: relative;
+}
+.nav-links button::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+.nav-links button:hover::after,
+.nav-links button.active::after {
+  width: 100%;
+}
 
         :root {
           --navy: #0d1b2a;
@@ -275,8 +342,8 @@ export default function ProfessorPortfolio() {
           border-top: 3px solid var(--gold);
           position: relative;
           overflow: hidden;
-          margin-top: auto;
-          align-self: flex-end;
+          margin-top: 80px;
+          align-self: center;
         }
         .hero-photo-placeholder {
           width: 100%; height: 100%;
@@ -691,8 +758,8 @@ export default function ProfessorPortfolio() {
 {/* STATS */}
       <div className="stats-bar">
         <div className="stats-grid">
-          {data.stats.map(s => (
-            <div key={s.label} className="stat-item">
+          {data.stats.map((s, i) => (
+  <div key={s.label} className={`stat-item reveal reveal-delay-${i + 1}`}>
               <span className="stat-value">{s.value}</span>
               <span className="stat-label">{s.label}</span>
             </div>
@@ -703,30 +770,28 @@ export default function ProfessorPortfolio() {
       {/* ABOUT */}
       <section id="about" ref={registerRef("about")}>
         <div className="section-label">About</div>
-        <h2 className="section-title">Shaping the Future<br /><em>of Brain Science</em></h2>
+        <h2 className="section-title">Advancing Fisheries<br /><em>for a Sustainable Future</em></h2>
         <div className="section-divider" />
         <div className="about-grid">
-          <p className="about-bio">
-            {data.bio}
-          </p>
-          <div className="about-highlights">
-            <div className="highlight-item">
-              <strong>Research Focus</strong>
-              <span>Computational models of synaptic plasticity, Bayesian brain theory, and ML-neuroscience interfaces</span>
-            </div>
-            <div className="highlight-item">
-              <strong>Current Appointment</strong>
-              <span>Full Professor, Department of Brain and Cognitive Sciences, MIT</span>
-            </div>
-            <div className="highlight-item">
-              <strong>Education</strong>
-              <span>Ph.D. Neuroscience, Stanford University · B.S. Mathematics, Caltech</span>
-            </div>
-            <div className="highlight-item">
-              <strong>Affiliations</strong>
-              <span>National Academy of Sciences · HHMI Investigator · IEEE Fellow</span>
-            </div>
-          </div>
+  <p className="about-bio reveal">{data.bio}</p>
+  <div className="about-highlights reveal reveal-delay-2">
+  <div className="highlight-item">
+    <strong>Research Focus</strong>
+    <span>Fisheries ecology & governance, aquaculture, food security, climate-smart fish preservation, and small-scale fisheries sustainability</span>
+  </div>
+  <div className="highlight-item">
+    <strong>Current Appointment</strong>
+    <span>Professor of Fisheries & Dean, Faculty of Science, Lagos State University</span>
+  </div>
+  <div className="highlight-item">
+    <strong>Education</strong>
+    <span>Ph.D. Fisheries, LASU · MBA Marketing, LAUTECH · B. Agric Tech, FUT Akure</span>
+  </div>
+  <div className="highlight-item">
+    <strong>Affiliations</strong>
+    <span>FAO Consultant · WorldFish Partner · FCWC Consultant · Too Big To Ignore Member</span>
+  </div>
+</div>
         </div>
       </section>
 
@@ -745,7 +810,7 @@ export default function ProfessorPortfolio() {
           </div>
           <div className="pub-list">
             {filteredPubs.map((p, i) => (
-              <div key={i} className="pub-item">
+              <div key={i} className="pub-item reveal">
                 <div className="pub-year">{p.year}</div>
                 <div className="pub-content">
                   <div className="pub-title">{p.title}</div>
@@ -767,7 +832,7 @@ export default function ProfessorPortfolio() {
         <div className="section-divider" />
         <div className="awards-timeline">
           {data.awards.map((a, i) => (
-            <div key={i} className="award-item">
+            <div key={i} className="award-item reveal">
               <div className="award-line" />
               <div className="award-dot" />
               <div className="award-year">{a.year}</div>
@@ -788,7 +853,7 @@ export default function ProfessorPortfolio() {
           <div className="section-divider" />
           <div className="courses-grid">
             {data.courses.map((c, i) => (
-              <div key={i} className="course-card">
+              <div key={i} className="course-card reveal">
                 <div className="course-meta">
                   <span className={`badge ${c.level === "Graduate" ? "badge-grad" : "badge-undergrad"}`}>{c.level}</span>
                   <span className="badge badge-sem">{c.semester}</span>
@@ -809,7 +874,7 @@ export default function ProfessorPortfolio() {
         <div className="section-divider" />
         <div className="team-grid">
           {data.team.map((m, i) => (
-            <div key={i} className="team-card">
+            <div key={i} className="team-card reveal">
               <div className="team-avatar">{m.initials}</div>
               <div className="team-name">{m.name}</div>
               <div className="team-role">{m.role}</div>
@@ -827,7 +892,7 @@ export default function ProfessorPortfolio() {
     <div className="section-divider" />
     <div className="grants-grid">
       {data.grants.map((g, i) => (
-        <div key={i} className="grant-card">
+        <div key={i} className="grant-card reveal">
           <div className="grant-header">
             <span className="grant-agency">{g.agency}</span>
             <span className="grant-type">{g.type}</span>
