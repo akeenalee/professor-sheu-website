@@ -9,19 +9,29 @@ const data = {
   email: "shehu.akintola@lasu.edu.ng",
   bio: `Prof. Akintola Shehu Latunji is a Professor of Fisheries at Lagos State University and the Dean of the Faculty of Science. A former Head of the Fisheries Department, he serves as Coordinator of the Science Programme and Chairman of the Nomadic Education Research Group. He is a recipient of the Australia Award and a consultant to international bodies including the Food and Agriculture Organisation (FAO), WorldFish, and the Fisheries Committee for West Central Gulf of Guinea (FCWC). His research spans fisheries sustainability, aquaculture, food security, and climate-smart fish preservation.`,
   stats: [
-    { label: "Publications", value: "50+" },
-    { label: "Research Grants", value: "20+" },
-    { label: "Years Active", value: "30+" },
-    { label: "Int'l Consultancies", value: "3+" },
-  ],
+  { label: "Publications", value: "76+" },
+  { label: "Citations", value: "1,062+" },
+  { label: "Research Grants", value: "20+" },
+  { label: "Years Active", value: "25+" },
+],
   publications: [
-    { year: 2022, title: "Solving the Sustainability Challenges at the Food-Climate-Biodiversity Nexus", journal: "SSHRC Funded Project", tags: ["Sustainability", "Biodiversity"] },
-    { year: 2020, title: "Integrated Aquaculture-Vegetable Crop and Decision Support System for Food Security", journal: "LASRIC Grant Project", tags: ["Aquaculture", "Food Security"] },
-    { year: 2020, title: "Demand for Seafood Safety and Sustainable Certification Standards in Sub-Saharan Africa", journal: "WorldFish / ICLARM", tags: ["Seafood", "Policy"] },
-    { year: 2020, title: "Adoption of Hybrid Solar-Biomass Fish Dryer for Improved Fish Processing", journal: "Gendered Design in STEAM", tags: ["Climate", "Livelihoods"] },
-    { year: 2019, title: "Demand for Food Safety and Sustainable Certification Standards in Sub-Saharan Africa", journal: "ICLARM / Lagos State University", tags: ["Food Safety", "Policy"] },
-    { year: 2019, title: "Illuminating Hidden Harvests: Case Study on Small-Scale Fisheries in Nigeria", journal: "Food and Agriculture Organisation (FAO)", tags: ["Fisheries", "Nigeria"] },
-  ],
+  { year: 2022, title: "Postharvest Practices in Small-Scale Fisheries", journal: "Book Chapter — FAO / WorldFish", tags: ["Post-Harvest", "Food Security"] },
+  { year: 2022, title: "Are Consumers in Developing Countries Willing to Pay for Aquaculture Food Safety Certification? Evidence from a Field Experiment in Nigeria", journal: "Aquaculture, Vol. 550, Pp. 1–10", tags: ["Aquaculture", "Food Safety"] },
+  { year: 2022, title: "Solving the Sustainability Challenges at the Food-Climate-Biodiversity Nexus", journal: "SSHRC Funded Project", tags: ["Sustainability", "Biodiversity"] },
+  { year: 2021, title: "Women in Fisheries and Aquaculture in Nigeria: Introducing the Bootstrap in the Roadmap", journal: "International Journal of Food Science and Agriculture, Vol. 5(4), Pp. 570–573", tags: ["Gender", "Aquaculture"] },
+  { year: 2020, title: "The Potential of Fish in Nigeria: Food System Recommendations to Improve Food and Nutrition Security", journal: "WorldFish Report", tags: ["Nutrition", "Food Security"] },
+  { year: 2020, title: "Experimental and Survey-Based Evidence on Seafood Safety Certification Standards in Sub-Saharan Africa", journal: "ICLARM / WorldFish Collaborative Study", tags: ["Seafood", "Policy"] },
+  { year: 2020, title: "Integrated Aquaculture-Vegetable Crop and Decision Support System for Food Security", journal: "LASRIC Grant Project", tags: ["Aquaculture", "Food Security"] },
+  { year: 2020, title: "Adoption of Hybrid Solar-Biomass Fish Dryer for Improved Fish Processing", journal: "Gendered Design in STEAM", tags: ["Climate", "Livelihoods"] },
+  { year: 2019, title: "Demand for Food Safety and Sustainable Certification Standards in Sub-Saharan Africa", journal: "ICLARM / Lagos State University", tags: ["Food Safety", "Policy"] },
+  { year: 2019, title: "Illuminating Hidden Harvests: Case Study on Small-Scale Fisheries in Nigeria", journal: "Food and Agriculture Organisation (FAO)", tags: ["Fisheries", "Nigeria"] },
+  { year: 2017, title: "Traditional Post-Harvest Practice and the Quest for Food and Nutritional Security in Nigeria", journal: "Agriculture and Food Security, 6, 1–17", tags: ["Post-Harvest", "Nigeria"] },
+  { year: 2015, title: "Effects of Smoking and Sun-Drying on Proximate, Fatty and Amino Acids Compositions of Southern Pink Shrimp (Penaeus notialis)", journal: "Journal of Food Science and Technology, 52, 2646–2656", tags: ["Shrimp", "Processing"] },
+  { year: 2013, title: "Effects of Hot Smoking and Sun Drying on Nutritional Composition of Giant Tiger Shrimp (Penaeus monodon)", journal: "Polish Journal of Food and Nutrition Sciences, 63(4), 227–237", tags: ["Shrimp", "Processing"] },
+  { year: 2011, title: "An Exposition on Potential Seaweed Resources for Exploitation, Culture and Utilization in West Africa: A Case Study of Nigeria", journal: "Journal of Fisheries and Aquatic Science, 6, 168–182", tags: ["Seaweed", "West Africa"] },
+  { year: 2010, title: "Seasonal Distribution and Aspects of Biology of Genus Macrobrachium from Badagry Creek, Lagos Nigeria", journal: "Nigerian Journal of Fisheries, Vol. 7(12), Pp. 16–24", tags: ["Ecology", "Badagry"] },
+  { year: 2009, title: "Catch Composition and Seasonal Distribution of Genera Penaeus and Macrobrachium in Badagry Creek, Lagos Nigeria", journal: "African Journal of Ecology, 48(3), 828–830", tags: ["Ecology", "Badagry"] },
+],
   awards: [
     { year: 2022, title: "Project Co-Applicant — Solving FCB (SSHRC, $2.5M)", body: "University of British Columbia, Canada & Lagos State University" },
     { year: 2020, title: "LASRIC Grant Award — Integrated Aquaculture & Decision Support System (₦3M)", body: "Lagos State Science Research & Innovation Council" },
@@ -629,7 +639,7 @@ export default function ProfessorPortfolio() {
 
       {/* NAV */}
       <nav>
-        <span className="nav-logo" onClick={() => scrollTo("about")}>E. Hartwell</span>
+        <span className="nav-logo" onClick={() => scrollTo("about")}>S.L Akintola</span>
         <div className="nav-links">
           {navItems.map(id => (
             <button key={id} className={activeSection === id ? "active" : ""} onClick={() => scrollTo(id)}>
@@ -655,9 +665,12 @@ export default function ProfessorPortfolio() {
           <p className="hero-title">{data.title}</p>
           <p className="hero-inst">{data.institution}</p>
           <div className="hero-cta">
-            <button className="btn-primary" onClick={() => scrollTo("publications")}>View Research</button>
-            <button className="btn-ghost" onClick={() => scrollTo("contact")}>Get in Touch</button>
-          </div>
+  <button className="btn-primary" onClick={() => scrollTo("publications")}>View Research</button>
+  <button className="btn-ghost" onClick={() => scrollTo("contact")}>Get in Touch</button>
+  <a href="/prof-sheu-cv.pdf" download style={{ textDecoration: "none" }}>
+    <button className="btn-ghost">Download CV</button>
+  </a>
+</div>
         </div>
   <div className={`hero-visual ${visible ? "visible" : ""}`}>
     <div className="hero-photo-wrap">
@@ -840,18 +853,23 @@ export default function ProfessorPortfolio() {
             <div className="contact-grid">
               <div className="contact-info">
                 {[
-                  { icon: "✉", label: "Email", value: data.email },
-                  { icon: "🏛", label: "Office", value: "46-4051, MIT Building 46, 43 Vassar Street, Cambridge MA 02139" },
-                  { icon: "📞", label: "Department", value: "+1 (617) 253-0000" },
-                ].map(r => (
-                  <div key={r.label} className="contact-row">
-                    <div className="contact-row-icon">{r.icon}</div>
-                    <div>
-                      <div className="contact-row-label">{r.label}</div>
-                      <div className="contact-row-value">{r.value}</div>
-                    </div>
-                  </div>
-                ))}
+  { icon: "✉", label: "Email", value: "shehu.akintola@lasu.edu.ng", href: "mailto:shehu.akintola@lasu.edu.ng" },
+  { icon: "🏛", label: "Office", value: "Dean's Office, Faculty of Science, Lagos State University", href: null },
+  { icon: "🕐", label: "Visiting Hours", value: "Mon 12–2pm · Wed 12–2pm · Fri 2–4pm", href: null },
+  { icon: "🎓", label: "Google Scholar", value: "scholar.google.com/citations?user=QTck3jMAAAAJ", href: "https://scholar.google.com/citations?user=QTck3jMAAAAJ&hl=en" },
+  { icon: "🔬", label: "ORCID", value: "orcid.org/0000-0002-7941-5609", href: "https://orcid.org/0000-0002-7941-5609" },
+].map(r => (
+  <div key={r.label} className="contact-row">
+    <div className="contact-row-icon">{r.icon}</div>
+    <div>
+      <div className="contact-row-label">{r.label}</div>
+      {r.href
+        ? <a href={r.href} target="_blank" rel="noreferrer" style={{ color: "var(--gold)", fontSize: "0.9rem", wordBreak: "break-all" }}>{r.value}</a>
+        : <div className="contact-row-value">{r.value}</div>
+      }
+    </div>
+  </div>
+))}
               </div>
               <div>
                 <p className="contact-note">
