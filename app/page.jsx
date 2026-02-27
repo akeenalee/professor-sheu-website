@@ -335,6 +335,12 @@ export default function ProfessorPortfolio() {
           opacity: 0; transform: translateX(30px);
           transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
         }
+          .hero-photo-wrap {
+  width: 220px;
+  height: 280px;
+  margin-top: 0;
+  align-self: center;
+}
         .hero-visual.visible { opacity: 1; transform: none; }
         .hero-photo-wrap {
           width: 340px; height: 420px;
@@ -651,8 +657,12 @@ export default function ProfessorPortfolio() {
             font-size: 0.9rem;
           }
           .hero { grid-template-columns: 1fr; }
-          .hero-visual { display: none; }
-          .hero-text { padding: 8rem 2rem 4rem; }
+          .hero-visual { 
+  display: flex;
+  justify-content: center;
+  padding: 0 2rem 3rem;
+}
+          .hero-text { padding: 7rem 2rem 2rem; }
           .stats-grid { grid-template-columns: repeat(2, 1fr); }
           .about-grid, .contact-grid, .courses-grid { grid-template-columns: 1fr; }
           .team-grid { grid-template-columns: repeat(2, 1fr); }
