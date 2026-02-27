@@ -950,7 +950,7 @@ export default function ProfessorPortfolio() {
       {/* FOOTER */}
       <footer>
   <div>© {new Date().getFullYear()} Prof. Akintola Shehu Latunji · Lagos State University · All rights reserved</div>
-  <div>Built by <span style={{ color: "var(--gold)" }}>©akeenalee</span></div>
+  <div>Built by <a href="https://akeenalee.com" target="_blank" rel="noreferrer" style={{ color: "var(--gold)", textDecoration: "none" }}>©akeenalee</a></div>
     </footer>
     </>
   );
