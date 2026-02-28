@@ -25,7 +25,7 @@ import { useState, useEffect, useRef } from "react";
 
 const data = {
   name: "Prof. Akintola Shehu Latunji",
-  title: "Professor of Fisheries | Dean, Faculty of Science",
+  title: "Professor of Fisheries",
   institution: "Lagos State University (LASU), Nigeria",
   email: "shehu.akintola@lasu.edu.ng",
   bio: `Prof. Akintola Shehu Latunji is a Professor of Fisheries at Lagos State University and the Dean of the Faculty of Science. A former Head of the Fisheries Department, he serves as Coordinator of the Science Programme and Chairman of the Nomadic Education Research Group. He is a recipient of the Australia Award and a consultant to international bodies including the Food and Agriculture Organisation (FAO), WorldFish, and the Fisheries Committee for West Central Gulf of Guinea (FCWC). His research spans fisheries sustainability, aquaculture, food security, and climate-smart fish preservation.`,
@@ -94,6 +94,36 @@ const data = {
   { year: 2010, title: "Microbiological Changes in Freshwater Prawn (Macrobrachium vollenhovenii) Stored in Ice", event: "Fisheries Society of Nigeria Conference", role: "Paper Presenter" },
   { year: 2008, title: "Three Morphotypes of Macrobrachium macrobrachion: Preliminary Results of Morphological Characters", event: "Pan Africa Fish and Fisheries Association, Ethiopia", role: "Paper Presenter" },
 ],
+positions: {
+  academic: [
+    { period: "2022–Present",      title: "Dean, Faculty of Science",                         org: "Lagos State University, Ojo" },
+    { period: "Aug 2018–Aug 2021", title: "Head of Department, Fisheries",                    org: "Lagos State University, Ojo" },
+    { period: "2009–Present",      title: "Professor of Fisheries",                           org: "Department of Fisheries, Lagos State University" },
+    { period: "2005–2010",         title: "Senior Lecturer",                                  org: "Department of Fisheries, Lagos State University" },
+    { period: "2006–2008",         title: "Lecturer I",                                       org: "Department of Fisheries, Lagos State University" },
+    { period: "2002–2004",         title: "Assistant Lecturer",                               org: "Department of Fisheries, Lagos State University" },
+  ],
+  nonAcademic: [
+    { period: "Mar 2020–Present",  title: "Chairman, Local Organising Committee, Faculty of Science International Conference", org: "Lagos State University" },
+    { period: "May 2020–Present",  title: "Chairman, Sub-Committee TEAM A, Committee on Sustainability", org: "Lagos State University" },
+    { period: "Mar 2019–Present",  title: "Chairman, Faculty of Science Research Committee",  org: "Lagos State University" },
+    { period: "Jan 2019–Present",  title: "Chairman, Faculty of Science Newsletter",          org: "Lagos State University" },
+    { period: "Mar 2019–Present",  title: "Deputy Director (Science), ACE-ITSE",             org: "Africa Centre of Excellence for Innovative & Transformative STEM Education, LASU" },
+    { period: "May 2018–Present",  title: "Chairman, Student Disciplinary and Exam Misconduct Committee", org: "Faculty of Science, Lagos State University" },
+    { period: "Feb 2018–Present",  title: "Member, Investigative Panel on Plagiarism Cases", org: "Lagos State University, Ojo" },
+    { period: "Oct 2017–Present",  title: "Chairman, Fish Farm Management Committee",        org: "Lagos State University, Ojo" },
+    { period: "Nov 2017–Present",  title: "Member, LASU Publishing Committee",               org: "Lagos State University" },
+    { period: "Feb 2016–Present",  title: "Member, Quality Assurance Implementation Committee", org: "Lagos State University, Ojo" },
+    { period: "Jan 2016–Present",  title: "Member, TETFUND Advisory Committee",             org: "Lagos State University, Ojo" },
+    { period: "Mar 2011–May 2015", title: "Coordinator, Post Graduate Programme",            org: "Fisheries Department, Lagos State University, Ojo" },
+    { period: "2015–2018",         title: "President, LASU Academic Staff Cooperative and Multipurpose Society", org: "Lagos State University" },
+    { period: "2006–2016",         title: "Assistant General Secretary, LASU Muslim Community", org: "Lagos State University" },
+    { period: "2020–Present",      title: "National Coordinator",                            org: "Vulnerability to Viability (V2V) Global Partnership" },
+    { period: "2015–Present",      title: "National Coordinator",                            org: "Too Big To Ignore (TBTI) — Global SSF Research Network" },
+    { period: "Present",           title: "Consultant",                                      org: "Food and Agriculture Organisation (FAO)" },
+    { period: "Present",           title: "Regional Consultant",                             org: "Fisheries Committee for West Central Gulf of Guinea (FCWC)" },
+  ],
+},
   team: [
     { name: "Fisheries Department", role: "Faculty", area: "Aquaculture, fisheries management, marine biology", initials: "FD" },
     { name: "Nomadic Education Research Group", role: "Research Group", area: "Chairman: Prof. Akintola Shehu Latunji", initials: "NE" },
@@ -142,7 +172,7 @@ export default function ProfessorPortfolio() {
     ? data.publications
     : data.publications.filter(p => p.tags.includes(selectedTag));
 
-  const navItems = ["about", "publications", "awards", "teaching", "grants", "conferences", "supervision", "news", "team", "contact"];
+  const navItems = ["about", "publications", "awards", "positions", "teaching", "grants", "conferences", "supervision", "news", "team", "contact"];
 
   const handleSubmit = async () => {
   if (!formData.name || !formData.email || !formData.message) return;
@@ -168,6 +198,35 @@ export default function ProfessorPortfolio() {
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap');
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        /* POSITIONS */
+.positions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+.positions-group-title {
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.5rem; padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--gold);
+}
+.position-item {
+  display: grid; grid-template-columns: 110px 1fr;
+  gap: 1.25rem; padding: 1.25rem 0;
+  border-bottom: 1px solid var(--cream-dark);
+}
+.position-period {
+  font-size: 0.75rem; color: var(--gold);
+  font-weight: 500; line-height: 1.4;
+  padding-top: 0.1rem;
+}
+.position-title {
+  font-size: 0.9rem; font-weight: 500;
+  color: var(--navy); line-height: 1.4; margin-bottom: 0.2rem;
+}
+.position-org {
+  font-size: 0.78rem; color: var(--muted);
+  font-style: italic; line-height: 1.4;
+}
+@media (max-width: 900px) {
+  .positions-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .position-item { grid-template-columns: 90px 1fr; }
+}
 
         /* CONTACT FORM */
 .contact-form { display: flex; flex-direction: column; gap: 1rem; }
@@ -993,6 +1052,40 @@ textarea.form-input { resize: vertical; min-height: 120px; }
           </div>
         </div>
       </section>
+      {/* POSITIONS */}
+<section id="positions" ref={registerRef("positions")} style={{ background: "white", maxWidth: "100%", padding: "7rem 5vw" }}>
+  <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+    <div className="section-label">Career</div>
+    <h2 className="section-title">Positions<br /><em>Held</em></h2>
+    <div className="section-divider" />
+    <div className="positions-grid">
+      <div className="reveal">
+        <div className="positions-group-title">Academic Positions</div>
+        {data.positions.academic.map((p, i) => (
+          <div key={i} className="position-item">
+            <div className="position-period">{p.period}</div>
+            <div>
+              <div className="position-title">{p.title}</div>
+              <div className="position-org">{p.org}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="reveal reveal-delay-2">
+        <div className="positions-group-title">Administrative & Non-Academic</div>
+        {data.positions.nonAcademic.map((p, i) => (
+          <div key={i} className="position-item">
+            <div className="position-period">{p.period}</div>
+            <div>
+              <div className="position-title">{p.title}</div>
+              <div className="position-org">{p.org}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* CONFERENCES */}
 <section id="conferences" ref={registerRef("conferences")} style={{ background: "white", maxWidth: "100%", padding: "7rem 5vw" }}>
