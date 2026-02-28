@@ -264,20 +264,27 @@ export default function ProfessorPortfolio() {
   const navItems = ["about", "publications", "awards", "positions", "teaching", "grants", "conferences", "supervision", "news", "team", "contact"];
 
   const handleSubmit = async () => {
-  if (!formData.name || !formData.email || !formData.message) return;
+  if (!formData.name || !formData.email || !formData.message) {
+    setFormStatus("error");
+    return;
+  }
   setFormStatus("sending");
   try {
-    await import("@emailjs/browser").then(({ default: emailjs }) => {
-      return emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
-        { from_name: formData.name, from_email: formData.email, message: formData.message },
-        "YOUR_PUBLIC_KEY"
-      );
-    });
+    const emailjs = (await import("@emailjs/browser")).default;
+    await emailjs.send(
+      "service_npg8o4o",
+      "template_r8vwd5i",
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+      },
+      "xh_bdeX9sOZFN1_xC"
+    );
     setFormStatus("success");
     setFormData({ name: "", email: "", message: "" });
-  } catch {
+  } catch (err) {
+    console.error(err);
     setFormStatus("error");
   }
 };
