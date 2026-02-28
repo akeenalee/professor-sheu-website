@@ -1010,19 +1010,34 @@ export default function ProfessorPortfolio() {
     <div className="section-divider" />
     <div className="news-grid">
       {[
-        { date: "2022", title: "Solving FCB Project Launched", body: "Prof. Akintola joins the Solving Food-Climate-Biodiversity Nexus project funded by SSHRC ($2.5M), a collaboration with the University of British Columbia, Canada." },
-        { date: "2022", title: "Dean, Faculty of Science", body: "Prof. Akintola Shehu Latunji is appointed Dean of the Faculty of Science, Lagos State University, adding to his distinguished administrative record." },
-        { date: "2022", title: "Postharvest Practices Chapter Published", body: "New book chapter on Postharvest Practices in Small-Scale Fisheries published as part of a major FAO/WorldFish global fisheries report." },
-        { date: "2021", title: "Women in Fisheries Paper Published", body: "New publication on Women in Fisheries and Aquaculture in Nigeria, introducing the Bootstrap methodology in the International Journal of Food Science and Agriculture." },
-        { date: "2020", title: "Multiple LASRIC Grants Awarded", body: "Prof. Akintola secures two LASRIC grants (₦3M each) for aquaculture and broodstock research, strengthening fisheries research capacity at LASU." },
-        { date: "2019", title: "FAO Illuminating Hidden Harvests", body: "Appointed lead consultant for the FAO Illuminating Hidden Harvests Nigeria Case Study, contributing to a global report on small-scale fisheries spanning 50+ countries." },
-      ].map((n, i) => (
-        <div key={i} className="news-card reveal">
-          <div className="news-date">{n.date}</div>
-          <div className="news-title">{n.title}</div>
-          <div className="news-body">{n.body}</div>
-        </div>
-      ))}
+  { date: "2022", title: "Solving FCB Project Launched", body: "Prof. Akintola joins the Solving Food-Climate-Biodiversity Nexus project funded by SSHRC ($2.5M), a collaboration with the University of British Columbia, Canada.", link: "https://www.youtube.com/watch?v=pJU8JUkX7EU", linkLabel: "Watch Video" },
+  { date: "2022", title: "Dean, Faculty of Science", body: "Prof. Akintola Shehu Latunji is appointed Dean of the Faculty of Science, Lagos State University, adding to his distinguished administrative record.", link: null },
+  { date: "2022", title: "Postharvest Practices Chapter Published", body: "New book chapter on Postharvest Practices in Small-Scale Fisheries published as part of a major FAO/WorldFish global fisheries report.", link: null },
+  { date: "2021", title: "Women in Fisheries Paper Published", body: "New publication on Women in Fisheries and Aquaculture in Nigeria in the International Journal of Food Science and Agriculture.", link: null },
+  { date: "2020", title: "Multiple LASRIC Grants Awarded", body: "Prof. Akintola secures two LASRIC grants (₦3M each) for aquaculture and broodstock research, strengthening fisheries research capacity at LASU.", link: null },
+  { date: "2019", title: "FAO Illuminating Hidden Harvests", body: "Appointed lead consultant for the FAO Illuminating Hidden Harvests Nigeria Case Study, contributing to a global report spanning 50+ countries.", link: "https://worldfishcenter.org/blog/illuminating-hidden-harvests-country-case-study-author-shehu-latunji-akintola", linkLabel: "Read More" },
+].map((n, i) => (
+  <div key={i} className="news-card reveal">
+    <div className="news-date">{n.date}</div>
+    <div className="news-title">{n.title}</div>
+    <div className="news-body">{n.body}</div>
+    {n.link && (
+      <a href={n.link} target="_blank" rel="noreferrer" style={{
+        display: "inline-block",
+        marginTop: "1rem",
+        fontSize: "0.75rem",
+        letterSpacing: "0.1em",
+        textTransform: "uppercase",
+        color: "var(--gold)",
+        textDecoration: "none",
+        borderBottom: "1px solid var(--gold)",
+        paddingBottom: "2px",
+      }}>
+        {n.linkLabel} →
+      </a>
+    )}
+  </div>
+))}
     </div>
   </div>
 </section>      
