@@ -271,7 +271,7 @@ export default function ProfessorPortfolio() {
   setFormStatus("sending");
   try {
     const emailjs = (await import("@emailjs/browser")).default;
-    await emailjs.send(
+    const result = await emailjs.send(
       "service_npg8o4o",
       "template_r8vwd5i",
       {
@@ -281,10 +281,13 @@ export default function ProfessorPortfolio() {
       },
       "xh_bdeX9sOZFN1_xC"
     );
+    console.log("EmailJS success:", result);
     setFormStatus("success");
     setFormData({ name: "", email: "", message: "" });
   } catch (err) {
-    console.error(err);
+    console.error("EmailJS error status:", err.status);
+    console.error("EmailJS error text:", err.text);
+    console.error("Full error:", JSON.stringify(err));
     setFormStatus("error");
   }
 };
