@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 const useScrollReveal = () => {
   useEffect(() => {
     const els = document.querySelectorAll('.reveal');
@@ -19,6 +21,7 @@ const useScrollReveal = () => {
 };
 
 import { useState, useEffect, useRef } from "react";
+
 
 const data = {
   name: "Prof. Akintola Shehu Latunji",
@@ -108,6 +111,8 @@ export default function ProfessorPortfolio() {
   const [selectedTag, setSelectedTag] = useState("All");
   const [menuOpen, setMenuOpen] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formStatus, setFormStatus] = useState(null);
   const sectionRefs = useRef({});
 
   useScrollReveal();
@@ -139,12 +144,61 @@ export default function ProfessorPortfolio() {
 
   const navItems = ["about", "publications", "awards", "teaching", "grants", "conferences", "supervision", "news", "team", "contact"];
 
+  const handleSubmit = async () => {
+  if (!formData.name || !formData.email || !formData.message) return;
+  setFormStatus("sending");
+  try {
+    await import("@emailjs/browser").then(({ default: emailjs }) => {
+      return emailjs.send(
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        { from_name: formData.name, from_email: formData.email, message: formData.message },
+        "YOUR_PUBLIC_KEY"
+      );
+    });
+    setFormStatus("success");
+    setFormData({ name: "", email: "", message: "" });
+  } catch {
+    setFormStatus("error");
+  }
+};
   return (
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap');
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* CONTACT FORM */
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.form-input {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 0.85rem 1rem;
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.form-input:focus { border-color: var(--gold); }
+.form-input::placeholder { color: rgba(245,240,232,0.3); }
+textarea.form-input { resize: vertical; min-height: 120px; }
+.form-submit {
+  background: var(--gold); color: var(--navy);
+  border: none; cursor: pointer;
+  padding: 0.85rem 2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500; font-size: 0.8rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  transition: background 0.2s, transform 0.2s;
+  align-self: flex-start;
+}
+.form-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+.form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.form-success { color: #68d391; font-size: 0.85rem; margin-top: 0.5rem; }
+.form-error { color: #fc8181; font-size: 0.85rem; margin-top: 0.5rem; }
 
         /* SCROLL REVEAL */
 .reveal {
@@ -817,16 +871,13 @@ export default function ProfessorPortfolio() {
         </div>
   <div className={`hero-visual ${visible ? "visible" : ""}`}>
     <div className="hero-photo-wrap">
-      <img
-        src="/prof-sheu.jpg"
-        alt="Prof. Akintola Shehu Latunji"
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          objectPosition: "center top",
-        }}
-      />
+      <Image
+  src="/prof-sheu.jpg"
+  alt="Prof. Akintola Shehu Latunji"
+  fill
+  style={{ objectFit: "cover", objectPosition: "center top" }}
+  priority
+/>
     </div>
   </div>
 </div>
@@ -1112,11 +1163,40 @@ export default function ProfessorPortfolio() {
 ))}
               </div>
               <div>
-                <p className="contact-note">
-                  Prof. Akintola welcomes inquiries from prospective graduate students, researchers, and international collaborators working in fisheries, aquaculture, food security, and climate-smart fisheries management.<br /><br />
-          Prospective postgraduate applicants should apply through the Department of Fisheries, Faculty of Science, Lagos State University. For consultancy and research partnerships, reach out directly via email.
-                </p>
-              </div>
+  <p className="contact-note" style={{ marginBottom: "1.5rem" }}>
+    Prof. Akintola welcomes inquiries from prospective graduate students, researchers, and international collaborators working in fisheries, aquaculture, food security, and climate-smart fisheries management.
+  </p>
+  <div className="contact-form">
+    <input
+      className="form-input"
+      placeholder="Your Name"
+      value={formData.name}
+      onChange={e => setFormData({...formData, name: e.target.value})}
+    />
+    <input
+      className="form-input"
+      placeholder="Your Email"
+      type="email"
+      value={formData.email}
+      onChange={e => setFormData({...formData, email: e.target.value})}
+    />
+    <textarea
+      className="form-input"
+      placeholder="Your Message"
+      value={formData.message}
+      onChange={e => setFormData({...formData, message: e.target.value})}
+    />
+    <button
+      className="form-submit"
+      onClick={handleSubmit}
+      disabled={formStatus === "sending"}
+    >
+      {formStatus === "sending" ? "Sending..." : "Send Message"}
+    </button>
+    {formStatus === "success" && <p className="form-success">✓ Message sent successfully!</p>}
+    {formStatus === "error" && <p className="form-error">✗ Something went wrong. Please try again.</p>}
+  </div>
+</div>
             </div>
           </div>
         </div>
