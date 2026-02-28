@@ -75,6 +75,22 @@ const data = {
     { title: "Demand for Food Safety & Sustainable Certification (Phase 1)", agency: "ICLARM", amount: "$26,120", duration: "2019", type: "Project Leader" },
     { title: "Wood-fuel Energy in Fish Preservation: Nexus Approach", agency: "TETFUND", amount: "₦1,989,000", duration: "2016", type: "Project Leader" },
   ],
+  conferences: [
+  { year: 2019, title: "Transdisciplinarity in Fisheries and Ocean Sustainability", event: "Trainers Training Workshop, Cape Town, South Africa", role: "Trainer" },
+  { year: 2019, title: "ACE I and ACE Impact Steering Committee Meeting", event: "15th ACE Meeting, Dakar, Senegal", role: "Participant" },
+  { year: 2018, title: "Small-Scale Fisheries Guidelines Implementation in Nigeria: Challenges and Prospects", event: "3rd World Small-Scale Fisheries Congress, Chiang Mai, Thailand", role: "Paper Presenter & Session Chair" },
+  { year: 2018, title: "Sustainable Small-Scale Fisheries in Nigeria — Adopting Open Transdisciplinarity Paradigm for Transformation", event: "3rd World Small-Scale Fisheries Congress, Chiang Mai, Thailand", role: "Paper Presenter" },
+  { year: 2018, title: "Stakeholder Engagement Workshop on National Fisheries and Aquaculture Policies", event: "Federal Department of Fisheries, Lagos", role: "Rapporteur" },
+  { year: 2018, title: "West and Central Africa Regional Consultation on SSF Action Plan", event: "FAO Regional Workshop, Dakar, Senegal", role: "Participant" },
+  { year: 2015, title: "Traditional Fish Processing and Nutritional Security: An Agendum for National Development", event: "National Summit Colloquium, Olusegun Obasanjo Presidential Library, Abeokuta", role: "Paper Presenter" },
+  { year: 2014, title: "Artisanal Fisheries in the Nexus: Traditional Fish Processing and Sustainable Development", event: "Water, Food, Climate and Energy Nexus Conference, University of North Carolina, USA", role: "Paper Presenter" },
+  { year: 2013, title: "International Spring University on Ecosystem Modelling", event: "Basque Centre for Climate Change, Bilbao, Spain", role: "Participant" },
+  { year: 2012, title: "Evaluation of Chemical and Nutrient Qualities of Smoked African River Prawn", event: "International Conference on Food Safety, Quality and Nutrition, Manchester Metropolitan University, UK", role: "Paper Presenter" },
+  { year: 2012, title: "Valuation of Fish Catches Among Waterside Communities Around Badagry Creek Lagos", event: "6th World Fisheries Congress, Scotland, UK", role: "Paper Presenter" },
+  { year: 2012, title: "10th International Seafood Summit, Hong Kong", event: "Seafood Summit, Hong Kong", role: "Participant" },
+  { year: 2010, title: "Microbiological Changes in Freshwater Prawn (Macrobrachium vollenhovenii) Stored in Ice", event: "Fisheries Society of Nigeria Conference", role: "Paper Presenter" },
+  { year: 2008, title: "Three Morphotypes of Macrobrachium macrobrachion: Preliminary Results of Morphological Characters", event: "Pan Africa Fish and Fisheries Association, Ethiopia", role: "Paper Presenter" },
+],
   team: [
     { name: "Fisheries Department", role: "Faculty", area: "Aquaculture, fisheries management, marine biology", initials: "FD" },
     { name: "Nomadic Education Research Group", role: "Research Group", area: "Chairman: Prof. Akintola Shehu Latunji", initials: "NE" },
@@ -121,7 +137,7 @@ export default function ProfessorPortfolio() {
     ? data.publications
     : data.publications.filter(p => p.tags.includes(selectedTag));
 
-  const navItems = ["about", "publications", "awards", "teaching", "grants", "team", "contact"];
+  const navItems = ["about", "publications", "awards", "teaching", "grants", "conferences", "supervision", "news", "team", "contact"];
 
   return (
     <>
@@ -712,6 +728,56 @@ export default function ProfessorPortfolio() {
 
 @media (max-width: 900px) { .grants-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .grants-grid { grid-template-columns: 1fr; } }
+/* CONFERENCES */
+.conf-list { display: flex; flex-direction: column; }
+.conf-item {
+  display: grid; grid-template-columns: 80px 1fr auto;
+  gap: 1.5rem; padding: 1.5rem 0;
+  border-bottom: 1px solid var(--cream-dark);
+  align-items: start;
+}
+.conf-item:hover { background: rgba(201,168,76,0.03); }
+.conf-role {
+  font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.2rem 0.6rem; background: rgba(201,168,76,0.1);
+  color: var(--gold); white-space: nowrap; height: fit-content;
+}
+.conf-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 0.3rem; line-height: 1.4; }
+.conf-event { font-size: 0.8rem; color: var(--muted); font-style: italic; }
+
+/* SUPERVISION */
+.supervision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.supervision-group {}
+.supervision-group-title {
+  font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem; padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.supervision-item {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--cream-dark);
+}
+.supervision-topic { font-size: 0.88rem; color: var(--navy); font-weight: 500; line-height: 1.4; margin-bottom: 0.2rem; }
+.supervision-meta { font-size: 0.78rem; color: var(--muted); font-style: italic; }
+
+/* NEWS */
+.news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.news-card {
+  background: white; padding: 1.75rem;
+  border-top: 3px solid transparent;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.news-card:hover { border-top-color: var(--gold); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(13,27,42,0.07); }
+.news-date { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+.news-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: 0.5rem; }
+.news-body { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+@media (max-width: 900px) {
+  .conf-item { grid-template-columns: 60px 1fr; }
+  .conf-role { display: none; }
+  .supervision-grid { grid-template-columns: 1fr; }
+  .news-grid { grid-template-columns: 1fr; }
+}
       `}</style>
 
       {/* NAV */}
@@ -876,6 +942,90 @@ export default function ProfessorPortfolio() {
           </div>
         </div>
       </section>
+
+      {/* CONFERENCES */}
+<section id="conferences" ref={registerRef("conferences")} style={{ background: "white", maxWidth: "100%", padding: "7rem 5vw" }}>
+  <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+    <div className="section-label">Presentations</div>
+    <h2 className="section-title">Conference<br /><em>Presentations</em></h2>
+    <div className="section-divider" />
+    <div className="conf-list">
+      {data.conferences.map((c, i) => (
+        <div key={i} className="conf-item reveal">
+          <div className="pub-year">{c.year}</div>
+          <div>
+            <div className="conf-title">{c.title}</div>
+            <div className="conf-event">{c.event}</div>
+          </div>
+          <span className="conf-role">{c.role}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* SUPERVISION */}
+<section id="supervision" ref={registerRef("supervision")}>
+  <div className="section-label">Mentorship</div>
+  <h2 className="section-title">Student<br /><em>Supervision</em></h2>
+  <div className="section-divider" />
+  <div className="supervision-grid">
+    <div className="supervision-group reveal">
+      <div className="supervision-group-title">PhD Theses</div>
+      {[
+        { topic: "Assessment of Value Chain of the Small-Scale Fisheries in Lagos State, Nigeria", meta: "Lagos State University" },
+        { topic: "Mapping and Distribution of Fuelwood Types and Evaluation of PAH in Smoked Fish in Nigeria", meta: "Lagos State University" },
+        { topic: "Risk Assessments and Control in Smoked Fish Products by Small/Medium Enterprise for Domestic and Export Markets", meta: "Lagos State University" },
+      ].map((s, i) => (
+        <div key={i} className="supervision-item">
+          <div className="supervision-topic">{s.topic}</div>
+          <div className="supervision-meta">{s.meta}</div>
+        </div>
+      ))}
+    </div>
+    <div className="supervision-group reveal reveal-delay-2">
+      <div className="supervision-group-title">MSc Dissertations</div>
+      {[
+        { topic: "Effects of Hot Smoking and Sun Drying on Nutritional Composition of Giant Tiger Shrimp (Penaeus monodon)", meta: "LASU · 2013" },
+        { topic: "Effects of Smoking and Sun-Drying on Proximate, Fatty and Amino Acids of Southern Pink Shrimp (Penaeus notialis)", meta: "LASU · 2012" },
+        { topic: "Effects of Ice Storage on the Biochemical Composition of Macrobrachium vollenhovenii", meta: "LASU · 2010" },
+        { topic: "Relative Abundance and Distribution of Bacteria in the Gut of Macrobrachium vollenhovenii", meta: "LASU · 2009" },
+        { topic: "Physico-Chemical and Metal Concentration of Tidal System (Odo-Igbala), Ojo Jetty, Lagos", meta: "LASU · 2012" },
+        { topic: "Physico-Chemical and Metal Concentration of Ojo Lagoon, Lagos", meta: "LASU · 2011" },
+      ].map((s, i) => (
+        <div key={i} className="supervision-item">
+          <div className="supervision-topic">{s.topic}</div>
+          <div className="supervision-meta">{s.meta}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* NEWS */}
+<section id="news" ref={registerRef("news")} style={{ background: "white", maxWidth: "100%", padding: "7rem 5vw" }}>
+  <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+    <div className="section-label">Latest</div>
+    <h2 className="section-title">News &<br /><em>Updates</em></h2>
+    <div className="section-divider" />
+    <div className="news-grid">
+      {[
+        { date: "2022", title: "Solving FCB Project Launched", body: "Prof. Akintola joins the Solving Food-Climate-Biodiversity Nexus project funded by SSHRC ($2.5M), a collaboration with the University of British Columbia, Canada." },
+        { date: "2022", title: "Dean, Faculty of Science", body: "Prof. Akintola Shehu Latunji is appointed Dean of the Faculty of Science, Lagos State University, adding to his distinguished administrative record." },
+        { date: "2022", title: "Postharvest Practices Chapter Published", body: "New book chapter on Postharvest Practices in Small-Scale Fisheries published as part of a major FAO/WorldFish global fisheries report." },
+        { date: "2021", title: "Women in Fisheries Paper Published", body: "New publication on Women in Fisheries and Aquaculture in Nigeria, introducing the Bootstrap methodology in the International Journal of Food Science and Agriculture." },
+        { date: "2020", title: "Multiple LASRIC Grants Awarded", body: "Prof. Akintola secures two LASRIC grants (₦3M each) for aquaculture and broodstock research, strengthening fisheries research capacity at LASU." },
+        { date: "2019", title: "FAO Illuminating Hidden Harvests", body: "Appointed lead consultant for the FAO Illuminating Hidden Harvests Nigeria Case Study, contributing to a global report on small-scale fisheries spanning 50+ countries." },
+      ].map((n, i) => (
+        <div key={i} className="news-card reveal">
+          <div className="news-date">{n.date}</div>
+          <div className="news-title">{n.title}</div>
+          <div className="news-body">{n.body}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>      
 
       {/* TEAM */}
       <section id="team" ref={registerRef("team")}>
