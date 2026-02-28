@@ -27,7 +27,8 @@ const data = {
   name: "Prof. Akintola Shehu Latunji",
   title: "Professor of Fisheries",
   institution: "Lagos State University (LASU), Nigeria",
-  email: "shehu.akintola@lasu.edu.ng",
+  email: "shehu.akintola2@gmail.com",
+  alternateEmail: "shehu.akintola@lasu.edu.ng",
   bio: `Prof. Akintola Shehu Latunji is a Professor of Fisheries at Lagos State University and the Dean of the Faculty of Science. A former Head of the Fisheries Department, he serves as Coordinator of the Science Programme and Chairman of the Nomadic Education Research Group. He is a recipient of the Australia Award and a consultant to international bodies including the Food and Agriculture Organisation (FAO), WorldFish, and the Fisheries Committee for West Central Gulf of Guinea (FCWC). His research spans fisheries sustainability, aquaculture, food security, and climate-smart fish preservation.`,
   stats: [
   { label: "Publications", value: "76+" },
@@ -1331,7 +1332,8 @@ textarea.form-input { resize: vertical; min-height: 120px; }
             <div className="contact-grid">
               <div className="contact-info">
                 {[
-  { icon: "✉", label: "Email", value: "shehu.akintola@lasu.edu.ng", href: "mailto:shehu.akintola@lasu.edu.ng" },
+  { icon: "✉", label: "Email", value: "shehu.akintola2@gmail.com", href: "mailto:shehu.akintola2@gmail.com" },
+{ icon: "✉", label: "Alt Email", value: "shehu.akintola@lasu.edu.ng", href: "mailto:shehu.akintola@lasu.edu.ng" },
   { icon: "🏛", label: "Office", value: "Dean's Office, Faculty of Science, Lagos State University", href: null },
   { icon: "🕐", label: "Visiting Hours", value: "Mon 12–2pm · Wed 12–2pm · Fri 2–4pm", href: null },
   { icon: "🎓", label: "Google Scholar", value: "scholar.google.com/citations?user=QTck3jMAAAAJ", href: "https://scholar.google.com/citations?user=QTck3jMAAAAJ&hl=en" },
