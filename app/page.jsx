@@ -36,22 +36,110 @@ const data = {
   { label: "Years Active", value: "25+" },
 ],
   publications: [
-  { year: 2022, title: "Postharvest Practices in Small-Scale Fisheries", journal: "Book Chapter — FAO / WorldFish", tags: ["Post-Harvest", "Food Security"] },
-  { year: 2022, title: "Are Consumers in Developing Countries Willing to Pay for Aquaculture Food Safety Certification? Evidence from a Field Experiment in Nigeria", journal: "Aquaculture, Vol. 550, Pp. 1–10", tags: ["Aquaculture", "Food Safety"] },
-  { year: 2022, title: "Solving the Sustainability Challenges at the Food-Climate-Biodiversity Nexus", journal: "SSHRC Funded Project", tags: ["Sustainability", "Biodiversity"] },
-  { year: 2021, title: "Women in Fisheries and Aquaculture in Nigeria: Introducing the Bootstrap in the Roadmap", journal: "International Journal of Food Science and Agriculture, Vol. 5(4), Pp. 570–573", tags: ["Gender", "Aquaculture"] },
-  { year: 2020, title: "The Potential of Fish in Nigeria: Food System Recommendations to Improve Food and Nutrition Security", journal: "WorldFish Report", tags: ["Nutrition", "Food Security"] },
-  { year: 2020, title: "Experimental and Survey-Based Evidence on Seafood Safety Certification Standards in Sub-Saharan Africa", journal: "ICLARM / WorldFish Collaborative Study", tags: ["Seafood", "Policy"] },
-  { year: 2020, title: "Integrated Aquaculture-Vegetable Crop and Decision Support System for Food Security", journal: "LASRIC Grant Project", tags: ["Aquaculture", "Food Security"] },
-  { year: 2020, title: "Adoption of Hybrid Solar-Biomass Fish Dryer for Improved Fish Processing", journal: "Gendered Design in STEAM", tags: ["Climate", "Livelihoods"] },
-  { year: 2019, title: "Demand for Food Safety and Sustainable Certification Standards in Sub-Saharan Africa", journal: "ICLARM / Lagos State University", tags: ["Food Safety", "Policy"] },
-  { year: 2019, title: "Illuminating Hidden Harvests: Case Study on Small-Scale Fisheries in Nigeria", journal: "Food and Agriculture Organisation (FAO)", tags: ["Fisheries", "Nigeria"] },
-  { year: 2017, title: "Traditional Post-Harvest Practice and the Quest for Food and Nutritional Security in Nigeria", journal: "Agriculture and Food Security, 6, 1–17", tags: ["Post-Harvest", "Nigeria"] },
-  { year: 2015, title: "Effects of Smoking and Sun-Drying on Proximate, Fatty and Amino Acids Compositions of Southern Pink Shrimp (Penaeus notialis)", journal: "Journal of Food Science and Technology, 52, 2646–2656", tags: ["Shrimp", "Processing"] },
-  { year: 2013, title: "Effects of Hot Smoking and Sun Drying on Nutritional Composition of Giant Tiger Shrimp (Penaeus monodon)", journal: "Polish Journal of Food and Nutrition Sciences, 63(4), 227–237", tags: ["Shrimp", "Processing"] },
-  { year: 2011, title: "An Exposition on Potential Seaweed Resources for Exploitation, Culture and Utilization in West Africa: A Case Study of Nigeria", journal: "Journal of Fisheries and Aquatic Science, 6, 168–182", tags: ["Seaweed", "West Africa"] },
-  { year: 2010, title: "Seasonal Distribution and Aspects of Biology of Genus Macrobrachium from Badagry Creek, Lagos Nigeria", journal: "Nigerian Journal of Fisheries, Vol. 7(12), Pp. 16–24", tags: ["Ecology", "Badagry"] },
-  { year: 2009, title: "Catch Composition and Seasonal Distribution of Genera Penaeus and Macrobrachium in Badagry Creek, Lagos Nigeria", journal: "African Journal of Ecology, 48(3), 828–830", tags: ["Ecology", "Badagry"] },
+  {
+    year: 2022,
+    title: "Postharvest Practices in Small-Scale Fisheries",
+    authors: "Akintola S.L., Fakoya K.A., et al.",
+    journal: "In: Postharvest Technology of Perishable Foods. ScienceDirect.",
+    tags: ["Post-Harvest", "Small-Scale Fisheries"],
+    link: "https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780128242964000086"
+  },
+  {
+    year: 2022,
+    title: "Are Consumers Willing to Pay for Aquaculture Food Safety Certification?",
+    authors: "Shikuku K.M., Akintola S.L., Fakoya K.A., et al.",
+    journal: "Aquaculture, Vol. 550.",
+    tags: ["Aquaculture", "Food Safety"],
+    link: "https://doi.org/10.1016/j.dib.2020.105540"
+  },
+  {
+    year: 2021,
+    title: "Women in Fisheries and Aquaculture in Nigeria",
+    authors: "Akintola S.L., Fakoya K.A.",
+    journal: "International Journal of Food Science & Agriculture.",
+    tags: ["Small-Scale Fisheries", "Food Safety"],
+    link: "https://scholar.google.com/citations?user=QTck3jMAAAAJ"
+  },
+  {
+    year: 2020,
+    title: "The Potential of Fish in Nigeria",
+    authors: "Bradley B., Akintola S.L., Fakoya K.A., et al.",
+    journal: "WorldFish Report, Pp. 1–52.",
+    tags: ["Food Safety", "Aquaculture"],
+    link: "https://digitalarchive.worldfishcenter.org/handle/20.500.12348/4383"
+  },
+  {
+    year: 2018,
+    title: "Inter-Sectorality in the Governance of Inland Fisheries",
+    authors: "Song A., Bower S., Akintola S.L., et al.",
+    journal: "Ecology and Society, Vol. 23(2), Pp. 1–16.",
+    tags: ["Governance", "Small-Scale Fisheries"],
+    link: "https://www.ecologyandsociety.org/vol23/iss2/art17/"
+  },
+  {
+    year: 2017,
+    title: "Small-Scale Fisheries in the Context of Traditional Post-Harvest Practice and the Quest for Food and Nutritional Security in Nigeria",
+    authors: "Akintola S.L. and Fakoya K.A.",
+    journal: "Agriculture and Food Security, Vol. 6, Pp. 1–17.",
+    tags: ["Post-Harvest", "Food Safety", "Small-Scale Fisheries"],
+    link: "https://doi.org/10.1186/s40066-017-0110-z"
+  },
+  {
+    year: 2017,
+    title: "Applying the Small-Scale Fisheries Guidelines in Nigeria: Status and Strategies for Badagry Coastal and Creek Fisheries",
+    authors: "Akintola S.L., Fakoya K.A., Joseph O.O.",
+    journal: "In: The Small-Scale Fisheries Guidelines Global Implementation. MARE Publication.",
+    tags: ["Governance", "Small-Scale Fisheries"],
+    link: "https://link.springer.com/chapter/10.1007/978-3-319-55074-9_30"
+  },
+  {
+    year: 2015,
+    title: "Effects of Smoking and Sun-Drying on Southern Pink Shrimp (Penaeus notialis)",
+    authors: "Akintola S.L.",
+    journal: "Journal of Food Science and Technology, Vol. 52(5), Pp. 2646–2656.",
+    tags: ["Shrimp", "Post-Harvest", "Food Safety"],
+    link: "https://doi.org/10.1007/s13197-014-1320-2"
+  },
+  {
+    year: 2013,
+    title: "Effects of Hot Smoking and Sun Drying on Giant Tiger Shrimp (Penaeus monodon)",
+    authors: "Akintola S.L., Brown A., Bakare A., et al.",
+    journal: "Polish Journal of Food and Nutrition Sciences, Vol. 63(4), Pp. 227–237.",
+    tags: ["Shrimp", "Post-Harvest"],
+    link: "https://doi.org/10.2478/pjfns-2013-0002"
+  },
+  {
+    year: 2013,
+    title: "Effects of Ice Storage on Macrobrachium vollenhovenii",
+    authors: "Akintola S.L. and Bakare S.",
+    journal: "Journal of Fisheries and Aquatic Science, Vol. 8(1), Pp. 213–217.",
+    tags: ["Shrimp", "Post-Harvest"],
+    link: "https://doi.org/10.3923/jfas.2013.213.217"
+  },
+  {
+    year: 2011,
+    title: "An Exposition on Potential Seaweed Resources in West Africa: A Case Study of Nigeria",
+    authors: "Fakoya K.A., Akintola S.L., et al.",
+    journal: "Journal of Fisheries and Aquatic Science, Vol. 6.",
+    tags: ["Aquaculture"],
+    link: "https://doi.org/10.3923/jfas.2011.37.47"
+  },
+  {
+    year: 2010,
+    title: "Seasonal Distribution and Biology of Genus Macrobrachium from Badagry Creek",
+    authors: "Akintola S.L., Anetekhai A.M., Fakoya K.A., Adewolu A.M.",
+    journal: "Nigerian Journal of Fisheries, Vol. 7(12), Pp. 16–24.",
+    tags: ["Ecology"],
+    link: "https://scholar.google.com/citations?user=QTck3jMAAAAJ"
+  },
+  {
+    year: 2009,
+    title: "Catch Composition and Seasonal Distribution of Genera Penaeus and Macrobrachium in Badagry Creek",
+    authors: "Akintola S.L., Olusoji-Bello O.A., et al.",
+    journal: "African Journal of Ecology, Vol. 48(3), Pp. 828–830.",
+    tags: ["Ecology", "Shrimp"],
+    link: "https://doi.org/10.1111/j.1365-2028.2009.01158.x"
+  },
 ],
   awards: [
     { year: 2022, title: "Project Co-Applicant — Solving FCB (SSHRC, $2.5M)", body: "University of British Columbia, Canada & Lagos State University" },
@@ -999,7 +1087,13 @@ textarea.form-input { resize: vertical; min-height: 120px; }
               <div key={i} className="pub-item reveal">
                 <div className="pub-year">{p.year}</div>
                 <div className="pub-content">
-                  <div className="pub-title">{p.title}</div>
+                  {p.link ? (
+  <a href={p.link} target="_blank" rel="noreferrer" className="pub-title-link">
+    <div className="pub-title">{p.title}</div>
+  </a>
+) : (
+  <div className="pub-title">{p.title}</div>
+)}
                   <div className="pub-journal">{p.journal}</div>
                   <div className="pub-tags">
                     {p.tags.map(t => <span key={t} className="pub-tag">{t}</span>)}
